@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.FilterForm"
+	xmlns:c1="clr-namespace:C1.Xamarin.Forms.Grid;assembly=C1.Xamarin.Forms.Grid"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<OnPlatform.iOS>
+				0, 20, 0, 0
+			</OnPlatform.iOS>
+		</OnPlatform>
+	</ContentPage.Padding>
+	
+	<ContentPage.Content>
+	  <StackLayout>
+	    <c1:FlexGrid x:Name="grid" HeightRequest="300"
+			HeadersVisibility="Column"
+			RowBackgroundColor="#FFE5E6FA"
+			AlternatingRowBackgroundColor="White" 
+			GridLinesVisibility="Vertical"
+			ColumnHeaderBackgroundColor="#FF778898" 
+			ColumnHeaderTextColor="White" 
+			ColumnHeaderFontAttributes="Bold"
+			SelectionBackgroundColor="#FFFAD127" 
+			SelectionTextColor="Black"
+         	RowTextColor="Black"/>
+	    <StackLayout Orientation="Horizontal" Padding="16">
+	      <Button x:Name="btnFilter" Text="Filter" Clicked="FilterClicked" HorizontalOptions="FillAndExpand"
+				BackgroundColor="#007EAD" TextColor="White"/>
+	      <Button x:Name="btnCancel" Text="Cancel" Clicked="CancelClicked" HorizontalOptions="FillAndExpand"
+				BackgroundColor="#007EAD" TextColor="White"/>
+	    </StackLayout>
+	  </StackLayout>
+	</ContentPage.Content>
+</ContentPage>

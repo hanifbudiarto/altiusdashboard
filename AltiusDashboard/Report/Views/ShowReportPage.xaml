@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.ShowReportPage"
+	xmlns:c1g="clr-namespace:C1.Xamarin.Forms.Grid;assembly=C1.Xamarin.Forms.Grid"
+	xmlns:c1i="clr-namespace:C1.Xamarin.Forms.Input;assembly=C1.Xamarin.Forms.Input"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+
+	<ContentPage.ToolbarItems>
+		<ToolbarItem x:Name="filter" Clicked="OnFilterClicked" Text="Filter" Icon="ic_filter_list_white">
+		</ToolbarItem>
+	</ContentPage.ToolbarItems>
+	
+	<ContentPage.Content>		
+		<AbsoluteLayout>		
+			<StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
+				<StackLayout Padding="16,8,16,4">
+					<StackLayout Orientation="Horizontal">
+						<Label Text="Grouping" TextColor="{StaticResource labelColor}" FontSize="14" VerticalOptions="CenterAndExpand" WidthRequest="100"/>
+						<ScrollView Orientation="Horizontal">
+							<StackLayout x:Name="groupby" Orientation="Horizontal" VerticalOptions="CenterAndExpand">
+
+							</StackLayout>
+						</ScrollView>
+					</StackLayout>
+
+					<StackLayout Orientation="Horizontal">
+						<c1i:C1ComboBox x:Name="group" TextColor="Black" BackgroundColor="White"
+							DisplayMemberPath="ColumnName" HorizontalOptions="FillAndExpand"/>
+						<Button Text="Add" x:Name="add" BackgroundColor="#007EAD" TextColor="White"/>
+						<Button Text="Clear" x:Name="clear" BackgroundColor="#007EAD" TextColor="White"/>
+					</StackLayout>
+				</StackLayout>
+				<Grid VerticalOptions="FillAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="*"/>
+						<RowDefinition Height="0.1*"/>
+					</Grid.RowDefinitions>
+					<c1g:FlexGrid x:Name="grid" 
+						Grid.Row="0"
+						HeadersVisibility="Column"
+						RowBackgroundColor="#FFE5E6FA"
+						AlternatingRowBackgroundColor="White" 
+						GridLinesVisibility="Vertical"
+						ColumnHeaderBackgroundColor="#FF778898" 
+						ColumnHeaderTextColor="White" 
+						ColumnHeaderFontAttributes="Bold"
+						SelectionBackgroundColor="#FFFAD127" 
+						SelectionTextColor="Black"
+	                 	RowTextColor="Black"
+						AutoGeneratingColumn="OnAutoGeneratingColumn"
+						AllowResizing="None"
+						VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"/>	
+					<c1g:FlexGrid x:Name="summary" HeadersVisibility="Column" AllowSorting="false"
+						AllowResizing="None" Grid.Row="1"
+						AutoGeneratingColumn="OnAutoGeneratingColumn" ColumnHeaderFontAttributes="Bold"
+						VerticalOptions="Fill" HorizontalOptions="FillAndExpand"/>
+				</Grid>
+			</StackLayout>	
+			<StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" 
+				AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}" />
+            </StackLayout>
+
+			<Label x:Name="nodata" Text="No Data Available" TextColor="{StaticResource textColor}"
+				AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+		</AbsoluteLayout>
+  				
+	</ContentPage.Content>
+</ContentPage>

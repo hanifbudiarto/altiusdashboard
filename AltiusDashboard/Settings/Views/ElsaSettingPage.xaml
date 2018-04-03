@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.ElsaSettingPage"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Content>
+		<StackLayout Orientation="Vertical"
+			HorizontalOptions="FillAndExpand"
+			VerticalOptions="Fill"
+			Padding="16">
+			<Entry x:Name="entryDatabase" Placeholder="Database" HeightRequest="48">
+				<Entry.TextColor>
+					<OnPlatform x:TypeArguments="Color" Android="{StaticResource textColor}">								
+					</OnPlatform>							
+				</Entry.TextColor>
+				<Entry.PlaceholderColor>
+					<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">
+					</OnPlatform>
+				</Entry.PlaceholderColor>
+			</Entry>
+			<Entry x:Name="entryInstance" Placeholder="Instance" HeightRequest="48">
+				<Entry.TextColor>
+					<OnPlatform x:TypeArguments="Color" Android="{StaticResource textColor}">								
+					</OnPlatform>							
+				</Entry.TextColor>
+				<Entry.PlaceholderColor>
+					<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">
+					</OnPlatform>
+				</Entry.PlaceholderColor>
+			</Entry>
+			<Button x:Name="btnSave" Text="SAVE" BackgroundColor="#007EAD" TextColor="White" 
+							HorizontalOptions="FillAndExpand" VerticalOptions="Fill"/>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

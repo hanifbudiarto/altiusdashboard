@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.MainReportPage"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.ToolbarItems>
+		<ToolbarItem x:Name="search" Clicked="OnSearchClicked" Text="Search" Icon="ic_search_white">
+		</ToolbarItem>
+	</ContentPage.ToolbarItems>
+	<ContentPage.Content>
+		<AbsoluteLayout>
+			<ListView x:Name="listView" BackgroundColor="{StaticResource darkBackgroundColor}" RowHeight="50" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+				<ListView.ItemTemplate>
+					<DataTemplate>
+						<ViewCell>
+							<StackLayout Padding="16" Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand">
+								<Image Source="report.png"/>
+								<Label Text="{ Binding Dept }" LineBreakMode="WordWrap" TextColor="{StaticResource textColor}" />
+							</StackLayout>
+						</ViewCell>
+					</DataTemplate>
+				</ListView.ItemTemplate>
+				<ListView.SeparatorColor>
+					<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">								
+					</OnPlatform>	
+				</ListView.SeparatorColor>
+			</ListView>
+			<StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}" />
+            </StackLayout>
+		</AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>

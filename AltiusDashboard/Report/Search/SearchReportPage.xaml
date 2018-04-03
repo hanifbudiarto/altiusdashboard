@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.SearchReportPage"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Content>
+		<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" 
+			Orientation="Vertical" Padding="16">
+			<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand">
+				<Entry x:Name="entrySearch" Placeholder="Search" HeightRequest="48" HorizontalOptions="FillAndExpand">
+					<Entry.TextColor>
+						<OnPlatform x:TypeArguments="Color" Android="{StaticResource textColor}">								
+						</OnPlatform>							
+					</Entry.TextColor>
+					<Entry.PlaceholderColor>
+						<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">
+						</OnPlatform>
+					</Entry.PlaceholderColor>
+				</Entry>
+				<Button x:Name="btnSearch" Image="ic_search_white" BackgroundColor="#007EAD" TextColor="White"
+							HorizontalOptions="Fill" VerticalOptions="Fill" WidthRequest="50"/>
+			</StackLayout>
+			<AbsoluteLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+				<ListView x:Name="listView" BackgroundColor="{StaticResource darkBackgroundColor}" RowHeight="75" HasUnevenRows="true" AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout Margin="16" VerticalOptions="CenterAndExpand" HorizontalOptions="FillAndExpand" Orientation="Horizontal">
+									<Image Source="report.png" WidthRequest="20" HeightRequest="20"/>
+									<Label Text="{ Binding Title }" LineBreakMode="WordWrap" TextColor="{StaticResource textColor}" />
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+					<ListView.SeparatorColor>
+						<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">								
+						</OnPlatform>	
+					</ListView.SeparatorColor>
+				</ListView>
+				<StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" IsVisible="false"
+					AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+	                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+	                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}" />
+	            </StackLayout>
+			</AbsoluteLayout>
+		</StackLayout>
+	</ContentPage.Content>
+</ContentPage>

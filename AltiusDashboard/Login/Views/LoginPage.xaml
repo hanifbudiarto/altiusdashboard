@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.LoginPage"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Content>
+		<AbsoluteLayout >
+			<StackLayout x:Name="loginForm" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+				<StackLayout Margin="16">
+					<Image Source="logoaltius.png" WidthRequest="100" Aspect="AspectFit"/>
+					<Label Text="ALTiUS Dashboard" FontSize="20" TextColor="{StaticResource textColor}" XAlign="Center"/>
+				</StackLayout>
+				<StackLayout WidthRequest="250" Margin="16" >
+					<Entry x:Name="entryUsername" Placeholder="Username" HeightRequest="48">
+						<Entry.TextColor>
+							<OnPlatform x:TypeArguments="Color" Android="{StaticResource textColor}">								
+							</OnPlatform>							
+						</Entry.TextColor>
+						<Entry.PlaceholderColor>
+							<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">
+							</OnPlatform>
+						</Entry.PlaceholderColor>
+					</Entry>
+					<Entry x:Name="entryPassword" Placeholder="Password" IsPassword="true" HeightRequest="48">
+						<Entry.TextColor>
+							<OnPlatform x:TypeArguments="Color" Android="{StaticResource textColor}">								
+							</OnPlatform>							
+						</Entry.TextColor>
+						<Entry.PlaceholderColor>
+							<OnPlatform x:TypeArguments="Color" Android="{StaticResource labelColor}">
+							</OnPlatform>
+						</Entry.PlaceholderColor>
+					</Entry>
+					<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+						<Button x:Name="btnSetting" Image="ic_settings_white" BackgroundColor="#007EAD" TextColor="White"
+							HorizontalOptions="Fill" VerticalOptions="FillAndExpand" WidthRequest="50"/>
+						<Button x:Name="btnLogin" Text="LOGIN" BackgroundColor="#007EAD" TextColor="White" 
+							HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"/>
+					</StackLayout>
+				</StackLayout>
+			</StackLayout>
+			<StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" 
+					AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}"/>
+            </StackLayout>
+		</AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>

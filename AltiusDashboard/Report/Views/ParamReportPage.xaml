@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="AltiusDashboard.ParamReportPage"
+	BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="*"/>
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="85*"/>
+				<RowDefinition Height="15*"/>
+			</Grid.RowDefinitions>
+
+			<ScrollView Grid.Row="0">
+				<AbsoluteLayout>
+					<StackLayout x:Name="layoutParameter" Padding="16" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+							AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All">
+						
+					</StackLayout>
+					<StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+		                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+		                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}"/>
+		            </StackLayout>
+				</AbsoluteLayout>
+			</ScrollView>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
