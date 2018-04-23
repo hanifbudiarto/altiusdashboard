@@ -19,7 +19,7 @@ namespace AltiusDashboard
 
 		public static string getQueryReport(string id) 
 		{
-			return "select query1 from Reportlist where id ='" + id + "'";
+			return "select query1, class from Reportlist where id ='" + id + "'";
 		}
 
 		public static string getBranchQuery(string username)

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="AltiusDashboard.ShowChartPage"
+    xmlns:c1="clr-namespace:C1.Xamarin.Forms.Chart;assembly=C1.Xamarin.Forms.Chart"
+    BackgroundColor="{StaticResource darkBackgroundColor}">
+	<ContentPage.Content>
+        <AbsoluteLayout>        
+            <StackLayout AbsoluteLayout.LayoutBounds="0, 0, 1, 1" AbsoluteLayout.LayoutFlags="All" >
+                <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                    <c1:FlexChart x:Name="chart" BindingX="Name">
+                      <c1:FlexChart.Series>
+                        <c1:ChartSeries Binding="Value" />
+                      </c1:FlexChart.Series>
+                    </c1:FlexChart>
+                </Grid>
+            </StackLayout>
+
+            <StackLayout x:Name="layoutLoading" Padding="6" Orientation="Horizontal" 
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional">
+                <ActivityIndicator IsRunning="true" Color="{StaticResource textColor}" VerticalOptions="Center" WidthRequest="20" HeightRequest="20" />
+                <Label Text="Loading..." VerticalOptions="Center" TextColor="{StaticResource textColor}" />
+            </StackLayout>
+
+            <Label x:Name="nodata" Text="No Data Available" TextColor="{StaticResource textColor}"
+                AbsoluteLayout.LayoutBounds="0.5, 0.5, -1, -1" AbsoluteLayout.LayoutFlags="PositionProportional"/>
+        </AbsoluteLayout>
+	</ContentPage.Content>
+</ContentPage>

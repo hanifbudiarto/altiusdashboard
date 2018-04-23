@@ -20,6 +20,7 @@ namespace AltiusDashboard
 		CancellationTokenSource cts;
 
 		string _id;
+        string _class;
 
 		public ParamReportPage() 
 		{
@@ -57,8 +58,18 @@ namespace AltiusDashboard
 		{
 			onLoading(true);
 			string finalQuery = await Task.Run(() => getFinalQuery(queryKategori + queryOriginal));
-			//Navigation.PushAsync(new ShowReportPage(Title, finalQuery));
-			Navigation.InsertPageBefore(new ShowReportPage(Title, finalQuery), this);
+            //Navigation.PushAsync(new ShowReportPage(Title, finalQuery));
+
+            Debug.WriteLine("CLASS " + _class);
+            if (_class.ToUpper().Equals("CHART"))
+            {
+                // go to another page
+                Navigation.InsertPageBefore(new ShowChartPage(Title, finalQuery), this);
+            }
+            else
+            {
+                Navigation.InsertPageBefore(new ShowReportPage(Title, finalQuery), this);
+            }
 			await Navigation.PopAsync().ConfigureAwait(false);
 		}
 
@@ -67,12 +78,13 @@ namespace AltiusDashboard
 		{
 			onLoading(true);
 			var myTask = Task.Run(() => DependencyService.Get<IDbDataFetcher>().getQueryReport(Query.getQueryReport(id)));
-			string query1 = await myTask;
-			queryKategori = getQueryKategori(query1, SettingVariable.Cabang.KodeCabang, SettingVariable.Cabang.KodeStaff);
-			queryOriginal = query1;
+            Reportlist report = await myTask;
+            _class = report.QueryClass;
+            queryKategori = getQueryKategori(report.Query1, SettingVariable.Cabang.KodeCabang, SettingVariable.Cabang.KodeStaff);
+            queryOriginal = report.Query1;
 
-			Debug.WriteLine(queryKategori + query1);
-			await ScanAmbilParameter(query1);
+            Debug.WriteLine(queryKategori + report.Query1);
+            await ScanAmbilParameter(report.Query1);
             onLoading(false);
 		}
 

@@ -57,6 +57,10 @@
     <EmbeddedResource Include="Report\Search\SearchReportPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
+    <EmbeddedResource Include="Report\Views\ShowChartPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
@@ -113,6 +117,10 @@
       <DependentUpon>SearchReportPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\PageUtils.cs" />
+    <Compile Include="Report\Models\Reportlist.cs" />
+    <Compile Include="Report\Views\ShowChartPage.xaml.cs">
+      <DependentUpon>ShowChartPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">

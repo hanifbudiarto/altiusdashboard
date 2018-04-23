@@ -129,9 +129,9 @@ namespace AltiusDashboard.Droid
 			return data;
 		}
 
-		public string getQueryReport(string query)
+        public Reportlist getQueryReport(string query)
 		{
-			string query1 = null;
+            Reportlist reportlist = new Reportlist();
 			SqlConnection connection = new SqlConnection(CONN_STRING);
 			try
 			{
@@ -145,7 +145,8 @@ namespace AltiusDashboard.Droid
 					{
 						while (reader.Read())
 						{
-							query1 = reader[0].ToString();
+                            reportlist.Query1 = reader[0].ToString();
+                            reportlist.QueryClass = reader[1].ToString();
 							break;
 						}
 					}
@@ -179,7 +180,7 @@ namespace AltiusDashboard.Droid
 				connection.Dispose();
 			}
 
-			return query1;
+            return reportlist;
 		}
 
 

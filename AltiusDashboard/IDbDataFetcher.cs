@@ -10,7 +10,7 @@ namespace AltiusDashboard
 		void reloadConnectionString();
 		List<MainReport> getMainReport(string query);
 		List<ItemReport> getItemReport(string query);
-		string getQueryReport(string query);
+        Reportlist getQueryReport(string query);
 		List<ChoiceItem> getChoiceData(string query);
 		List<User> getUser(string query);
 		ReportModel getReportData(string query);
