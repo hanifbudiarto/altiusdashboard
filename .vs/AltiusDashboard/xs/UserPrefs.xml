@@ -1,0 +1,15 @@
+﻿<Properties StartupConfiguration="{3802D202-1640-4660-8663-8510749F1914}|Default" NuGet.AddPackagesDialog.IncludePrerelease="True">
+  <MonoDevelop.Ide.Workbench ActiveDocument="AltiusDashboard Status">
+    <Files>
+      <File FileName="AltiusDashboard Status" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.AltiusDashboard.Droid PreferredExecutionTarget="Android.Android_Accelerated_Nougat" AndroidDesignerPreferredTheme="Theme.DeviceDefault.NoActionBar.Fullscreen" />
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.AltiusDashboard.iOS PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.6FE4DC07-2A20-4F07-88CD-992DEA23E6D0" />
+</Properties>
